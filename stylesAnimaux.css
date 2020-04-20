@@ -67,14 +67,20 @@ button:focus
 {
     float: left;
     margin: 0 15px 0 0;
+    max-width: 15em;
+    max-height: 15em;
+    filter: drop-shadow(0 0 0.4em rgba(0, 0, 0, 0.7));
+    /*box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7);*/
+    border-radius: 0.2em;
 }
+
 
 .animauxAqua p
 {
     float: right;
 }
 
-.animauxAqua div
+.animauxAqua #desc
 {
     float: left;
 }
@@ -95,13 +101,13 @@ label {
     display: block;
     position: relative;
     padding: 10px 30px 10px 30px;
-    border: 3px solid #fff;
+    border: 3px solid white;
     border-radius: 100px;
     color: #fff;
     background-color: #914d4d;
     /*rouge : #914d4d*/
     /*bleu : #4f6e88*/
-    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    filter: drop-shadow(0 0 0.5em rgba(0, 0, 0, .2)) ;
     text-align: center;
     pointer-events: none;
     margin: -0.5em;

@@ -3,7 +3,7 @@ var btnTerr = document.getElementById("btnTerr")
 var btnGrandQ = document.getElementById("btnGrandQ")
 var divMil = document.getElementById("divMil")
 var allBtn = [btnGrandQ, btnTerr, btnAqua]
-var grandQuizzDebloque = true
+var grandQuizzDebloque = false
 
 function init()
 {

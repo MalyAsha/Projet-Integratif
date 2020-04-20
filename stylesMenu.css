@@ -32,7 +32,7 @@ button /* Style de base d'un bouton (style desactivé) */
 
 button:focus
 {
-    outline: none; /* Cache la bordure du navigateur bleu quand on click*/
+    outline: none; /* Cache la bordure du navigateur bleu quand on clique*/
 }
 #btnAqua
 {

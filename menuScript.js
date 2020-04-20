@@ -24,7 +24,7 @@ function init()
             })
         }
     } 
-    else{ // Cache les bouton et affiche un message si le navigateur n'est pas compatible
+    else{ // Cache les boutons et affiche un message si le navigateur n'est pas compatible
         allBtn.forEach(elm => {
             elm.style.display = "none"
         });
@@ -33,7 +33,7 @@ function init()
     }
 }
 
-/** Cette fonction permet d'"activer" un bouton de base, il rajoute les couleurs et l'annimation lorsqu'on passe la souris au dessus.
+/** Cette fonction permet d'"activer" un bouton de base, elle rajoute les couleurs et l'animation lorsque l'on passe la souris au dessus du bouton en question.
  * 
  * @param {element} element L'element du bouton qu'on veut "activer"
  * @param {string} color La couleur que l'on veut donner au bouton

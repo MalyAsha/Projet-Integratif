@@ -3,7 +3,8 @@ var btnTerr = document.getElementById("btnTerr")
 var btnGrandQ = document.getElementById("btnGrandQ")
 var divMil = document.getElementById("divMil")
 var allBtn = [btnGrandQ, btnTerr, btnAqua]
-var grandQuizzDebloque = false
+
+localStorage.setItem("grandQuizzDebloque", false)
 
 function init()
 {
@@ -16,7 +17,7 @@ function init()
             window.location = "./terrestre.html"
         })
     
-        if(grandQuizzDebloque)
+        if(localStorage.getItem("grandQuizzDebloque") == true)
         {
             activerBouton(btnGrandQ, 'rgb(153, 0, 0)')
             btnGrandQ.addEventListener('click', function menuGrandQuizz(){

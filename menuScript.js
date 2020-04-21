@@ -4,7 +4,7 @@ var btnGrandQ = document.getElementById("btnGrandQ")
 var divMil = document.getElementById("divMil")
 var allBtn = [btnGrandQ, btnTerr, btnAqua]
 
-localStorage.setItem("grandQuizzDebloque", "true") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+localStorage.setItem("grandQuizzDebloque", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
 
 function init()
 {

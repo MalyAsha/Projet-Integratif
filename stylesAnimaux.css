@@ -8,6 +8,10 @@ body
 box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
 */
 
+h1
+{
+    font-size: 3em;
+}
 
 
 button /* Style de base d'un bouton (style desactivé) */
@@ -23,6 +27,7 @@ button /* Style de base d'un bouton (style desactivé) */
     font-size: 16px;
     margin: 4px 2px;
     transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
     cursor: default;
     
 }
@@ -39,20 +44,22 @@ button:focus
     right : 25px;
     background-color: rgb(0, 0, 0, 0); /* Couleur du fond du bouton avant le hover */
     color: black; /* Couleur du texte avant */
-    border: 4px solid black; /* Couleur bordure */
+    border: 1px solid black; /* Couleur bordure */
     cursor: pointer;
 }
 
 #btnRetour:hover
 {
-    background-color: black; /* Couleur du fond apres */
-    color: white; /* Couleur du texte apres */
+    transform: scale(0.98);
+    box-shadow: 0 0 0.2em black inset;
+    /*background-color: black; /* Couleur du fond apres */
+    /*color: white; /* Couleur du texte apres */
 }
 
 #divAnimaux
 {
-    margin: 20px;
-    max-width: 50vmax;
+    margin: 0 auto;
+    max-width: 60vmax;
 }
 .animauxAqua ul
 {
@@ -90,11 +97,15 @@ button:focus
     padding: 10px;
     overflow: auto;
     cursor: pointer;
+    border-radius: 0.2em;
+    transition: all 0.4s ease-in-out;
 }
 
 .animauxAqua li:hover
 {
-    background: rgb(206, 206, 206);
+    background: rgb(243, 243, 243);
+    transform: scale(0.98);
+    box-shadow: 0 0 1em black inset;
 }
 
 label {

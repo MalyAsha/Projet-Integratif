@@ -4,7 +4,7 @@ var btnGrandQ = document.getElementById("btnGrandQ")
 var divMil = document.getElementById("divMil")
 var allBtn = [btnGrandQ, btnTerr, btnAqua]
 
-localStorage.setItem("grandQuizzDebloque", false)
+localStorage.setItem("grandQuizzDebloque", "true") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
 
 function init()
 {
@@ -17,7 +17,7 @@ function init()
             window.location = "./terrestre.html"
         })
     
-        if(localStorage.getItem("grandQuizzDebloque") == true)
+        if(localStorage.getItem("grandQuizzDebloque") == "true")
         {
             activerBouton(btnGrandQ, 'rgb(153, 0, 0)')
             btnGrandQ.addEventListener('click', function menuGrandQuizz(){
@@ -42,21 +42,30 @@ function init()
 function activerBouton(element, color)
 {
     element.style.cursor = "pointer"
-    element.style.border = "4px solid"
+    element.style.border = "1px solid"
     element.style.borderColor = color
     element.style.color = "black"
     element.style.backgroundColor = "rgb(0,0,0,0)"
 
     function mouseOverBtn(){
+        element.style.transform = "scale(0.98)"
+        element.style.boxShadow = "0 0 0.2em " + color + " inset"
+        /* old style
         element.style.backgroundColor = color
         element.style.color = "white"
+        */
     }
-
+    
     function mouseOutBtn(){
+        
+        element.style.transform = "scale(1)"
+        element.style.boxShadow = "none"
+        /*
         element.style.cursor = "pointer"
         element.style.border = "2px solid" + color
         element.style.color = "black"
         element.style.backgroundColor = "rgb(0,0,0,0)"
+        */
     }
 
     element.addEventListener("mouseover",mouseOverBtn)

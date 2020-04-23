@@ -1,0 +1,147 @@
+
+html
+{
+    background-image: url(./images/backgroundAqua.jpg); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+}
+
+body
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-variant: all-small-caps;
+    color: black;
+}
+/*
+box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
+*/
+
+h1
+{
+    font-size: 3em;
+}
+
+
+button /* Style de base d'un bouton (style desactivé) */
+{
+    font-variant: all-small-caps;
+    border: none;
+    border-radius: 0.5em;
+    color: white;
+    background-color: rgb(219, 219, 219);
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    cursor: default;
+    
+}
+
+button:focus
+{
+    outline: none; /* Cache la bordure du navigateur bleu quand on click*/
+}
+
+#btnRetour
+{
+    position: absolute;
+    top : 25px;
+    right : 25px;
+    background-color: rgb(0, 0, 0, 0); /* Couleur du fond du bouton avant le hover */
+    color: black; /* Couleur du texte avant */
+    border: 1px solid black; /* Couleur bordure */
+    cursor: pointer;
+}
+
+#btnRetour:hover
+{
+    transform: scale(0.98);
+    box-shadow: 0 0 0.2em black inset;
+    /*background-color: black; /* Couleur du fond apres */
+    /*color: white; /* Couleur du texte apres */
+}
+
+#divAnimaux
+{
+    margin: 0 auto;
+    max-width: 60vmax;
+}
+.animauxAqua ul
+{
+    list-style-type: none;
+    
+}
+.animauxAqua h3
+{
+    font: bold 20px;
+    font-variant: all-small-caps;
+}
+
+.animauxAqua img
+{
+    float: left;
+    margin: 0 15px 0 0;
+    max-width: 15em;
+    max-height: 15em;
+    filter: drop-shadow(0 0 0.4em rgba(0, 0, 0, 0.7));
+    /*box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7);*/
+    border-radius: 0.2em;
+}
+
+
+.animauxAqua p
+{
+    float: right;
+    font-variant: all-small-caps;
+}
+
+.animauxAqua #desc
+{
+    margin-top: 1em;
+    font-weight: 500;
+    float: left;
+    font-variant: all-small-caps;
+
+}
+
+.animauxAqua li
+{
+    padding: 10px;
+    overflow: auto;
+    cursor: pointer;
+    border-radius: 0.2em;
+    transition: all 0.4s ease-in-out;
+    background-color: rgba(250, 250, 250, .2);
+    margin: 0.5em;
+}
+
+.animauxAqua li:hover
+{
+    background: rgba(228, 228, 228, 0.37);
+    transform: scale(0.98);
+    box-shadow: 0 0 1em black inset;
+}
+
+label {
+    display: block;
+    position: relative;
+    padding: 10px 30px 10px 30px;
+    border: 3px solid white;
+    border-radius: 100px;
+    color: #fff;
+    background-color: #914d4d;
+    /*rouge : #914d4d*/
+    /*bleu : #4f6e88*/
+    filter: drop-shadow(0 0 0.5em rgba(0, 0, 0, .2)) ;
+    text-align: center;
+    pointer-events: none;
+    margin: -0.5em;
+    margin-right: 0.5em;
+  }

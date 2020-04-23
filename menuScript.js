@@ -4,8 +4,6 @@ var btnGrandQ = document.getElementById("btnGrandQ")
 var divMil = document.getElementById("divMil")
 var allBtn = [btnGrandQ, btnTerr, btnAqua]
 
-localStorage.setItem("grandQuizzDebloque", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
-
 function init()
 {
     if ((typeof(Storage) !== "undefined")){ // Verifie si le navigateur supporte le stockage local
@@ -16,7 +14,6 @@ function init()
         btnTerr.addEventListener('click', function menuTerrestre(){
             window.location = "./terrestre.html"
         })
-    
         if(localStorage.getItem("grandQuizzDebloque") == "true")
         {
             activerBouton(btnGrandQ, 'rgb(153, 0, 0)')
@@ -24,6 +21,7 @@ function init()
                 window.location = "./grandQuizz.html"
             })
         }
+
     } 
     else{ // Cache les boutons et affiche un message si le navigateur n'est pas compatible
         allBtn.forEach(elm => {
@@ -71,4 +69,65 @@ function activerBouton(element, color)
     element.addEventListener("mouseover",mouseOverBtn)
 
     element.addEventListener("mouseout", mouseOutBtn)
+}
+
+function verifSauvegarde()
+{
+    if(localStorage.getItem("grandQuizzDebloque") == "undefined"){
+        localStorage.setItem("grandQuizzDebloque", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("requinExplore") == "undefined"){
+        localStorage.setItem("requinExplore", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("requinValide") == "undefined"){
+        localStorage.setItem("requinValide", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("baleineExplore") == "undefined"){
+        localStorage.setItem("baleineExplore", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("baleineValide") == "undefined"){
+        localStorage.setItem("baleineValide", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("raieExplore") == "undefined"){
+        localStorage.setItem("raieExplore", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("raieValide") == "undefined"){
+        localStorage.setItem("raieValide", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("pieuvreABExplore") == "undefined"){
+        localStorage.setItem("pieuvreABExplore", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("pieuvreABValide") == "undefined"){
+        localStorage.setItem("pieuvreABValide", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("poissonClownExplore") == "undefined"){
+        localStorage.setItem("poissonClownExplore", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("poissonClownValide") == "undefined"){
+        localStorage.setItem("poissonClownValide", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("crocodileExplore") == "undefined"){
+        localStorage.setItem("crocodileExplore", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("crocodileValide") == "undefined"){
+        localStorage.setItem("crocodileValide", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("dauphineExplore") == "undefined"){
+        localStorage.setItem("dauphineExplore", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("dauphineValide") == "undefined"){
+        localStorage.setItem("dauphineValide", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("tortueDeMerExplore") == "undefined"){
+        localStorage.setItem("tortueDeMerExplore", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("tortueDeMerValide") == "undefined"){
+        localStorage.setItem("tortueDeMerValide", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("phoqueExplore") == "undefined"){
+        localStorage.setItem("phoqueExplore", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
+    if(localStorage.getItem("phoqueValide") == "undefined"){
+        localStorage.setItem("phoqueValide", "false") //Sert a stocker l'information de facon permanente, permet de garder une sauvegarde
+    }
 }

@@ -1,38 +1,68 @@
 html
 {
-    background-image: url(./images/backgroundAqua.jpg); 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    
 }
 body
 {
-    color: black;
+    color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-variant: all-small-caps;
+}
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+    width: 100vw;
 }
 
-header
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+h1
 {
     text-align: center;
     position: sticky;
 }
 
-#ep1Acceuil
+#h1
+{
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    font-size: 3em;
+    margin-bottom: 3em;
+}
+
+#divEp1Acceuil
 {
     display: none;
     font-size: 4em;
     text-align: center;
 }
-
-#ep1Regles
+#divEp1Regles
 {
     white-space:pre;
-    display: block;
+    display: none;
+}
+
+#divEp1Epreuve
+{
+    display: none;
 }
 
 button /* Style de base d'un bouton (style desactivé) */
 {
+    font-variant: all-small-caps;
     border: none;
     border-radius: 0.5em;
     color: white;
@@ -54,7 +84,62 @@ button:focus
     outline: none; /* Cache la bordure du navigateur bleu quand on click*/
 }
 
+#fakeBtnRegle
+{
+    background-color: rgb(0, 0, 0, 0); /* Couleur du fond du bouton avant le hover */
+    color: white; /* Couleur du texte avant */
+    border: 1px solid white; /* Couleur bordure */
+    height: max-content;
+    margin-top: 1.5em;
+}
+
 #btnSuivant
 {
     float: right;
+    background-color: rgb(0, 0, 0, 0); /* Couleur du fond du bouton avant le hover */
+    color: white; /* Couleur du texte avant */
+    border: 1px solid white; /* Couleur bordure */
+    height: max-content;
+    margin-top: 1.5em;
+    cursor: pointer;
+}
+
+#btnSuivant:hover
+{
+    transform: scale(0.98);
+    box-shadow: 0 0 0.3em white inset;
+}
+
+#btnPrecedent
+{
+    float: left;
+    background-color: rgb(0, 0, 0, 0); /* Couleur du fond du bouton avant le hover */
+    color: white; /* Couleur du texte avant */
+    border: 1px solid white; /* Couleur bordure */
+    height: max-content;
+    margin-top: 1.5em;
+    cursor: pointer;
+}
+
+#btnPrecedent:hover
+{
+    transform: scale(0.98);
+    box-shadow: 0 0 0.3em white inset;
+}
+#txtValide
+{
+    font-weight: bolder;
+}
+
+ul
+{
+    font-weight: 900;
+    font-size: 1.5em;
+    padding-inline-start: 0;
+}
+
+#regles
+{
+    font-size: 2em;
+    margin: -4em;
 }

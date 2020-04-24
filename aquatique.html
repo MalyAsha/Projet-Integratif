@@ -5,8 +5,14 @@
         <link rel="stylesheet" href="stylesAquatique.css">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> <!-- Permet d'aficher les accents-->
     </head>
+    <div class="fullscreen-bg">
+        <video loop muted autoplay poster="images/backgroundAqua.jpg" class="fullscreen-bg__video">
+            <source src="images/backgroundAqua.mp4" type="video/mp4">
+        </video>
+    </div>
     <body onload="init();">
-        <div><h1>Milieu Aquatique</h1><button id="btnRetour">Retour<br>au menu</button></div>
+        <div><h1>Milieu Aquatique</h1></div>
+        <div id="divBtn"><button id="btnRetour">Retour<br>au menu</button></div>
         <div id="divAnimaux">
             <ul class='animauxAqua'>
                 <li id="requin">
@@ -131,5 +137,4 @@
         </div>
         <script src="./aquatiqueScript.js"></script>
     </body>
-    <!--<a href="https://www.freepik.com/free-photos-vectors/banner">Banner vector created by upklyak - www.freepik.com</a>-->
 </html>

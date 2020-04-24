@@ -4,6 +4,7 @@
         <title>Epreuve du requin</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <link rel="stylesheet" href="stylesRequin.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     </head>
     <div class="fullscreen-bg">
         <video loop muted autoplay poster="images/backgroundAqua.jpg" class="fullscreen-bg__video">
@@ -12,9 +13,6 @@
     </div>
     <body onload="init();">
         <h1 id="h1">Le requin</h1>
-        <!--<video id="video" autoplay loop muted>
-            <source src="images\backgroundAqua.mp4" type="video/mp4">
-        </video>-->
         <div id="divEp1Acceuil">
             <div>
                 <h1>Epreuve 1</h1>
@@ -30,15 +28,26 @@
                     <li style="display: inline-flex;"><p>Remplir le texte à trou sur le requin a partir de vos propre connaissances.</p></li>
                     <li style="display: inline-flex;"><p>En cas de difficulté vous pouvez afficher les mots manquants en cliquant sur </p><button id="fakeBtnRegle" style="display: inline-flex;">?</button></li>
                     <li style="display: inline-flex;"><p>Epreuve </p><p id="txtValide">validé</p><p> si vous avez moins de 3 erreurs.</p></li>
+                    <li style="display: inline-flex;"><p>Une fois l'epreuve terminer vous pouver continuez en cliquant sur <button id="btnFakeSuivant">Suivant</button> ou recommencer cette epreuve en cliquant sur </p><div id="divReplay"><img src="images/replay.png"></div></li>
                 </ul>
             </div>
         </div>
         <div id="divEp1Epreuve">
-            
+            <div id="textTrou">La baleine bleue est un mammifère marin. C'est une espèce de <input class="inputMot" id="mot1" name="cetaces" maxlength="7"> pouvant dépasser <input class="inputMot" id="mot2" name="trente" maxlength="6"> mètre de longueur et peser 200 tonnes. 
+                Elle se nourrit essentiellement d'un petit crustacé, le <input class="inputMot" id="mot3" name="krill" maxlength="5">, mais parfois de petits poissons et calamars, 
+                sa bouche est remplie de <input class="inputMot" id="mot4" name="fanons" maxlength="6">: des lames cornées qui garnissent la bouche des baleines. 
+                Ils fonctionnent comme des <input class="inputMot" id="mot5" name="filtres" maxlength="7"> et permettent de retenir le krill dans leur bouche tout en expulsant l'eau. 
+                Les fanons peuvent mesurer jusqu'à <input class="inputMot" id="mot6" name="deux" maxlength="4"> mètres de long. La longévité de cette espèce est de 80 à 85 ans. 
+                Les baleines bleues migrent entre les mers proches des pôles où elles se <input class="inputMot" id="mot7" name="nourissent" maxlength="11"> et les mers plus chaudes où elles se <input class="inputMot" id="mot8" name="reproduisent" maxlength="12">. 
+                Elles vivent généralement seules ou avec un autre individu et sont les animaux les plus gros vivant actuellement sur terre. 
+                Pour respirer la baleine bleue remonte à la surface et ouvre son <input class="inputMot" id="mot9" name="évent" maxlength="5">.</div>
         </div>
-        <button id="btnSuivant">Suivant</button>
         <button id="btnPrecedent">Précedent</button>
+        <button id="btnAide">?</button>
+        <button id="btnSuivant">Suivant</button>
         <script src="requinScript.js"></script>
-        <!--<a href="https://www.freepik.com/free-photos-vectors/banner">Banner vector created by upklyak - www.freepik.com</a>-->
+        <div id="credit">
+            <div>Icons made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        </div>
     </body>
 </html>

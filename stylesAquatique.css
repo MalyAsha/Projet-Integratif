@@ -1,11 +1,11 @@
 
 html
 {
-    background-image: url(./images/backgroundAqua.jpg); 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-color: #000407;
     
 }
 

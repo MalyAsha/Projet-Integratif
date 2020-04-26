@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Epreuve du requin</title>
+        <title>Epreuve du baleine</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <link rel="stylesheet" href="stylesRequin.css">
+        <link rel="stylesheet" href="stylesBaleine.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     </head>
     <div class="fullscreen-bg">
@@ -12,7 +12,7 @@
         </video>
     </div>
     <body onload="init();">
-        <h1 id="h1">Le requin</h1>
+        <h1 id="h1">Le baleine</h1>
         <div id="divEp1Acceuil">
             <div>
                 <h1>Epreuve 1</h1>
@@ -25,7 +25,7 @@
                     <h3 style="font-weight : bolder;display: inline-block;">Epreuve 1 : </h3><p style="font-size : 1.2em;display: inline-block;">Régles</p>
                 </div>
                 <ul>
-                    <li style="display: inline-flex;"><p>Remplir le texte à trou sur le requin a partir de vos propre connaissances.</p></li>
+                    <li style="display: inline-flex;"><p>Remplir le texte à trou sur le baleine a partir de vos propre connaissances.</p></li>
                     <li style="display: inline-flex;"><p>En cas de difficulté vous pouvez afficher les mots manquants en cliquant sur </p><button id="fakeBtnRegle" style="display: inline-flex;">?</button></li>
                     <li style="display: inline-flex;"><p>Epreuve </p><p id="txtValide">validé</p><p> si vous avez moins de 3 erreurs.</p></li>
                     <li style="display: inline-flex;"><p>Une fois l'epreuve terminer vous pouver continuez en cliquant sur <button id="btnFakeSuivant">Suivant</button> ou recommencer cette epreuve en cliquant sur </p><div id="divReplay"><img src="images/replay.png"></div></li>
@@ -42,9 +42,88 @@
                 Elles vivent généralement seules ou avec un autre individu et sont les animaux les plus gros vivant actuellement sur terre. 
                 Pour respirer la baleine bleue remonte à la surface et ouvre son <input class="inputMot" id="mot9" name="évent" maxlength="5">.</div>
         </div>
+        <div id="divEp1Resultat">
+            <div id="text">
+                <h1>Epreuve 1</h1><br>
+                <h3>Score :</h3><br>
+                <div id="score"></div>
+            </div>
+        </div>
+        <div id="divEp2Acceuil">
+            <div>
+                <h1>Epreuve 2</h1>
+                <h3>La communication de l'animal</h3>
+            </div>
+        </div>
+        <div id="divEp2Regles">
+            <!-- REMPLIR REGLES-->
+            Ecrire regles
+        </div>
+        <div id="divEp2Epreuve">
+            <div id="casesCommunications">
+                <div>
+                    Communication tactile <br>
+                    <div style="display: flex;"><div class="rond"></div><div class="rond"></div></div>
+                </div>
+                <div>
+                    Communication sonore <br>
+                    <div style="display: flex;"><div class="rond"></div><div class="rond"></div></div>
+                </div>
+                <div>
+                    Communication visuel <br>
+                    <div style="display: flex;"><div class="rond"></div><div class="rond"></div></div>
+                </div>
+                <div>
+                    Communication chimique <br>
+                    <div style="display: flex;"><div class="rond"></div><div class="rond"></div></div>
+                </div>
+            </div>
+            <div id="pastillesCommunications">
+                <table>
+                    <tr><td><div class="pastilles"><div>S'identifier</div></div></td><td><div class="pastilles"><div>Lien affectif</div></div></td></tr>
+                    <tr><td><div class="pastilles"><div>Se reproduire</div></div></td><td><div class="pastilles"><div>Marquer son territoire</div></div></td></tr>
+                    <tr><td><div class="pastilles"><div>Hierarchisation du groupe</div></div></td><td><div class="pastilles"><div>Se rencontrer</div></div></td></tr>
+                    <tr><td><div class="pastilles"><div>Signaler un danger</div></div></td><td><div class="pastilles"><div>Chasser en groupe</div></div></td></tr>
+                </table>
+            </div>
+        </div>
+        <div id="divEp2Resultat">
+
+        </div>
+        
+        <div id="divEp3Acceuil">
+
+        </div>
+        <div id="divEp3Regles">
+
+        </div>
+        <div id="divEp3Epreuve">
+
+        </div>
+        <div id="divEp3Resultat">
+
+        </div>
+
+        <div id="divEp4Acceuil">
+
+        </div>
+        <div id="divEp4Regles">
+
+        </div>
+        <div id="divEp4Epreuve">
+
+        </div>
+        <div id="divEp4Resultat">
+
+        </div>
+
+
         <button id="btnPrecedent">Précedent</button>
         <button id="btnSuivant">Suivant</button>
-        <script src="requinScript.js"></script>
+        <button id="btnValider">Valider</button>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script src="baleineScript.js"></script>
         <div id="credit">
             <div>Icons made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </div>

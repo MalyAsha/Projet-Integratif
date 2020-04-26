@@ -4,6 +4,7 @@ html
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-color: #000407;
     
 }
 body
@@ -40,25 +41,26 @@ h1
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
     font-size: 3em;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
 }
 
 #divEp1Acceuil
 {
-    display: none;
+    display: block;
     font-size: 4em;
     text-align: center;
 }
 #divEp1Regles
 {
+    margin-top: -2em;
     white-space:pre;
-    display: none;
+    display: block;
     width: 90%;
 }
 
 #divEp1Epreuve
 {
-    display: none;
+    display: block;
 }
 button /* Style de base d'un bouton (style desactivé) */
 {
@@ -93,9 +95,11 @@ button:focus
     margin-top: 1.5em;
 }
 
-#btnSuivant
+#btnSuivant, #btnValider
 {
-    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
     background-color: rgb(0, 0, 0, 0); /* Couleur du fond du bouton avant le hover */
     color: white; /* Couleur du texte avant */
     border: 1px solid white; /* Couleur bordure */
@@ -104,7 +108,7 @@ button:focus
     cursor: pointer;
 }
 
-#btnSuivant:hover
+#btnSuivant:hover, #btnValider:hover
 {
     transform: scale(0.98);
     box-shadow: 0 0 0.3em white inset;
@@ -112,7 +116,9 @@ button:focus
 
 #btnPrecedent
 {
-    float: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     background-color: rgb(0, 0, 0, 0); /* Couleur du fond du bouton avant le hover */
     color: white; /* Couleur du texte avant */
     border: 1px solid white; /* Couleur bordure */
@@ -175,7 +181,64 @@ ul
     text-align: center;
 }
 
+#divEp1Resultat
+{
+    display: block;
+    text-align: center;
+}
 
+#casesCommunications
+{
+    float: left;
+}
+#pastillesCommunications
+{
+    float: right;
+}
+
+.rond
+{
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+    box-shadow: 0 0 0.4em black inset;
+    background: rgba(255, 255, 255, 0.514);
+    margin: 0.5em;
+}
+.pastilles
+{
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+    box-shadow: 0 0 0.4em black inset;
+    background: rgba(255, 255, 255, 1);
+    margin: 0.5em;
+    color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+}
+.pastilles:hover
+{
+    box-shadow: 5px 5px 5px black;
+
+}
+
+.pastilles:active
+{
+    cursor: move;
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+}
+#pastillesCommunications table div div
+{
+    font-size: 0.8em;
+    overflow-wrap: anywhere;
+}
 /*STYLES DE CHAQUES MOTS*/
 #textTrou
 {
@@ -187,7 +250,7 @@ ul
     text-transform: uppercase;
     border: none;
     padding: 0;
-    color: rgb(255, 98, 98);
+    color: rgb(221, 214, 109);
     font-variant: caps;
     font: 2ch 'Roboto Mono', 'Roboto Mono', monospace;
 }

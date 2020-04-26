@@ -12,7 +12,12 @@ body
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-variant: all-small-caps;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
 }
+
 .fullscreen-bg {
     position: fixed;
     top: 0;
@@ -21,14 +26,14 @@ body
     left: 0;
     overflow: hidden;
     z-index: -100;
-    width: 100vw;
+    width: 100%;
 }
 
 .fullscreen-bg__video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
 }
 h1
 {
@@ -41,46 +46,41 @@ h1
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
     font-size: 3em;
-    margin-bottom: 2em;
+    margin-bottom: 5%;
 }
 
-#divEp1Acceuil
+.acceuil
 {
     display: block;
     font-size: 4em;
     text-align: center;
 }
-#divEp1Regles
+.regles
 {
-    margin-top: -2em;
+    margin-top: -5%;
     white-space:pre;
     display: block;
     width: 90%;
 }
 
-#divEp1Epreuve
-{
-    display: block;
-}
 button /* Style de base d'un bouton (style desactivé) */
 {
     font-variant: all-small-caps;
     border: none;
-    border-radius: 0.5em;
+    border-radius: 0.3em;
     color: white;
     background-color: rgb(219, 219, 219);
-    padding: 8px 32px;
+    padding: 0.6% 2%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 100%;
+    margin: 0 0.3%;
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
     cursor: default;
     
 }
-
 button:focus
 {
     outline: none; /* Cache la bordure du navigateur bleu quand on click*/
@@ -91,20 +91,18 @@ button:focus
     background-color: rgb(0, 0, 0, 0); /* Couleur du fond du bouton avant le hover */
     color: white; /* Couleur du texte avant */
     border: 1px solid white; /* Couleur bordure */
-    height: max-content;
-    margin-top: 1.5em;
+    width: fit-content;
 }
 
 #btnSuivant, #btnValider
 {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 0%;
+    right: 0%;
     background-color: rgb(0, 0, 0, 0); /* Couleur du fond du bouton avant le hover */
     color: white; /* Couleur du texte avant */
     border: 1px solid white; /* Couleur bordure */
     height: max-content;
-    margin-top: 1.5em;
     cursor: pointer;
 }
 
@@ -123,7 +121,6 @@ button:focus
     color: white; /* Couleur du texte avant */
     border: 1px solid white; /* Couleur bordure */
     height: max-content;
-    margin-top: 1.5em;
     cursor: pointer;
 }
 
@@ -140,36 +137,31 @@ button:focus
 ul
 {
     font-weight: 900;
-    font-size: 1.5em;
-    padding-inline-start: 0;
+    font-size: 130%;
+}
+ul li .liTxt
+{
+    display: inline-flex;
 }
 
 #regles
 {
     font-size: 2em;
-    margin: -4em;
+    display: inline-flex;
 }
 
-
-#divReplay img
+#btnReplay
 {
-    width: 1em;
+    width: fit-content;
+    background-color: rgb(0, 0, 0, 0); /* Couleur du fond du bouton avant le hover */
+    color: white; /* Couleur du texte avant */
+    border: 1px solid white; /* Couleur bordure */
+    cursor: pointer;
 }
-
-#divReplay
+#btnReplay:hover img
 {
-
-    display: inline-table;
-    border: 1px solid white;
-    border-radius: 0.3em;
-    padding:2px 32px;
-    margin-top: 1.8em;
-}
-
-#divReplay:hover img
-{
-    transform: rotate(-360deg);
-    transition: 0.5s ease-out;
+    transform: rotate(-180deg);
+    transition: 0.2s ease-in-out;
 }
 
 #credit
@@ -181,7 +173,7 @@ ul
     text-align: center;
 }
 
-#divEp1Resultat
+.resultat
 {
     display: block;
     text-align: center;

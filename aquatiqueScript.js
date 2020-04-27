@@ -55,20 +55,21 @@ function init(){
 
     for(item of allAnimaux){
         let nomAnimal = item.id
-        let explore = item.getElementsByTagName('label').explore
-        let valide = item.getElementsByTagName('label').valide
-
-        if(infoJeu[nomAnimal].explore)
+        let exploreLabel = item.getElementsByTagName('label').explore
+        let valideLabel = item.getElementsByTagName('label').valide
+        infoJeu[nomAnimal].explore = localStorage.getItem(nomAnimal + "Explore")
+        infoJeu[nomAnimal].valide = localStorage.getItem(nomAnimal + "Valide")
+        if(infoJeu[nomAnimal].explore == "true")
         {
-            explore.style.backgroundColor = "#4f6e88"
+            exploreLabel.style.backgroundColor = "#4f6e88"
         }
-        else {explore.style.backgroundColor = "#914d4d"}
+        else {exploreLabel.style.backgroundColor = "#914d4d"}
 
-        if(infoJeu[nomAnimal].valide)
+        if(infoJeu[nomAnimal].valide == "true")
         {
-            valide.style.backgroundColor = "#4f6e88"
+            valideLabel.style.backgroundColor = "#4f6e88"
         }
-        else {valide.style.backgroundColor = "#914d4d"}
+        else {valideLabel.style.backgroundColor = "#914d4d"}
 
         item.addEventListener('click', function(){
             window.location = infoJeu[nomAnimal].html

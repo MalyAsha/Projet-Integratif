@@ -59,13 +59,11 @@ $(function() {
         choixJoueur.visuel[pastilleGlissante] = 0
         choixJoueur.chimique[pastilleGlissante] = 0
         document.getElementById(pastilleGlissante).style.backgroundColor = "rgba(255,255,255,1)"
-        console.log(pastilleGlissante)
     }});
     $(".rond").droppable({drop : function(ev, ui){
         pastilleDepose = $(ui.draggable).attr("id");
         rondDepose = ev.target.parentElement.parentElement.id
         isTrue = bullesBaleines[rondDepose][pastilleDepose]
-        console.log(isTrue)
         choixJoueur[rondDepose][pastilleDepose] = 1
         
         dropped = ui.draggable
@@ -113,6 +111,7 @@ function init()
 
 function pageSuivante()
 {
+    localStorage.setItem("baleineExplore", "true")
     switch (i){
         case (0):
             cacherElement([lastScreen, btnValider])
@@ -186,7 +185,7 @@ function pagePrecedente()
             switch(numEpreuve){
                 case 0 :
                     btnValider.addEventListener('click', validerEp1)
-                    btnValider.addEventListener('click', validerEp2)
+                    btnValider.removeEventListener('click', validerEp2)
                     break;
                 case 1 : 
                     btnValider.removeEventListener('click', validerEp1)
@@ -246,7 +245,7 @@ function validerEp2()
         afficherElement([btnSuivant])
         Epreuves[1].resultat.getElementsByTagName("div").score.innerHTML = "Felicitations vous avez reussi l'epreuve 2"
     }
-    console.log(bon)
+    else{alert('Il vous manques des pastilles a mettre ou vous avez encore des mauvaises reponses !')}
 }
 function afficherElement(elem)
 {

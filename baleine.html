@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="stylesBaleine.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
         <script src="https://unpkg.com/feather-icons"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <div class="fullscreen-bg">
         <video loop muted autoplay poster="images/backgroundAqua.jpg" class="fullscreen-bg__video">
@@ -64,38 +65,39 @@
         </div>
         <div id="divEp2Epreuve" class="epreuve">
             <div id="casesCommunications">
-                <div>
+                <div id="tactile">
                     Communication tactile <br>
-                    <div style="display: flex;"><div class="rond"></div><div class="rond"></div></div>
+                    <div style="display: flex;"><div class="rond"></div></div>
                 </div>
-                <div>
+                <div id="sonore">
                     Communication sonore <br>
-                    <div style="display: flex;"><div class="rond"></div><div class="rond"></div></div>
+                    <div style="display: flex;"><div class="rond"></div><div class="rond"></div><div class="rond"></div><div class="rond"></div><div class="rond"></div></div>
                 </div>
-                <div>
+                <div id="visuel">
                     Communication visuel <br>
-                    <div style="display: flex;"><div class="rond"></div><div class="rond"></div></div>
+                    <div style="display: flex;"><div class="rond"></div></div>
                 </div>
-                <div>
+                <div id="chimique">
                     Communication chimique <br>
-                    <div style="display: flex;"><div class="rond"></div><div class="rond"></div></div>
+                    <div style="display: flex;"><div class="rond"></div></div>
                 </div>
             </div>
             <div id="pastillesCommunications">
-                <table>
+                <table id="tablePastilles">
                     <tr><td><div id="identif" class="pastilles"><div>S'identifier</div></div></td><td><div id="lien" class="pastilles"><div>Lien affectif</div></div></td></tr>
                     <tr><td><div id="reprodu" class="pastilles"><div>Se reproduire</div></div></td><td><div id="territoire" class="pastilles"><div>Marquer son territoire</div></div></td></tr>
                     <tr><td><div id="hierarchie" class="pastilles"><div>Hierarchisation du groupe</div></div></td><td><div id="rencontre" class="pastilles"><div>Se rencontrer</div></div></td></tr>
                     <tr><td><div id="danger" class="pastilles"><div>Signaler un danger</div></div></td><td><div id="chasse" class="pastilles"><div>Chasser en groupe</div></div></td></tr>
+                    <tr><td><div id="infos" class="pastilles"><div>S'informer</div></div></td></tr>
                 </table>
             </div>
         </div>
         <div id="divEp2Resultat" class="resultat">
-
+            <div id="score"></div>
         </div>
         
         <div id="divEp3Acceuil" class="acceuil">
-
+            
         </div>
         <div id="divEp3Regles" class="regles">
 

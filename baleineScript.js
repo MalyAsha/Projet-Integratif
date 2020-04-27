@@ -27,16 +27,61 @@ var Epreuves = [
         resultat : document.getElementById('divEp4Resultat')
     }
 ]
+var bullesBaleines = {
+    tactile : {identif : false, lien : true, reprodu : false, territoire : false, hierarchie : false, rencontre : false, danger : false, chasse : false, infos : false},
+    sonore : {identif : true, lien : false, reprodu : true, territoire : true, hierarchie : false, rencontre : false, danger : true, chasse : false, infos : true},
+    visuel : {identif : false, lien : false, reprodu : false, territoire : false, hierarchie : false, rencontre : true, danger : false, chasse : false, infos : false},
+    chimique : {identif : false, lien : false, reprodu : false, territoire : false, hierarchie : false, rencontre : false, danger : false, chasse : false, infos : false}
+}
+var choixJoueur = {
+    tactile : {identif : 0 , lien : 0 , reprodu  : 0 , territoire  : 0 , hierarchie  : 0 , rencontre  : 0 , danger  : 0 , chasse  : 0 , infos  : 0 },
+    sonore : {identif : 0 , lien : 0 , reprodu  : 0 , territoire  : 0 , hierarchie  : 0 , rencontre  : 0 , danger  : 0 , chasse  : 0 , infos  : 0 },
+    visuel : {identif : 0 , lien : 0 , reprodu  : 0 , territoire  : 0 , hierarchie  : 0 , rencontre  : 0, danger  : 0 , chasse  : 0 , infos  : 0 },
+    chimique : {identif : 0 , lien : 0 , reprodu  : 0 , territoire  : 0 , hierarchie  : 0 , rencontre  : 0 , danger  : 0 , chasse  : 0 , infos  : 0 }
+}
 var ordre = ["acceuil", "regles", "epreuve", "resultat"]
 var i = 0
 var numEpreuve = 0
 var lastScreen = Epreuves[0].acceuil
 
 $(function() {
-    $(".pastilles").draggable({snap:".rond", snapMode:"inner"});
+    $("#tablePastilles td").droppable({drop : function(ev, ui){
+        pastilleDepose = $(ui.draggable).attr("id");
+        document.getElementById(pastilleDepose).style.backgroundColor = "rgba(255,255,255,1)"
+        dropped = ui.draggable
+        droppedOn = $(this)
+        $(dropped).detach().css({top : 0, left : 0, margin : '0.5em' , "font-size": "0.8em",}).appendTo(droppedOn)
+    }})
+    $(".pastilles").draggable({snap:".rond, #tablePastilles td", snapMode:"inner", tolerance : "fit", start : function(ev, ui){
+        pastilleGlissante = this.id
+        choixJoueur.tactile[pastilleGlissante] = 0
+        choixJoueur.sonore[pastilleGlissante] = 0
+        choixJoueur.visuel[pastilleGlissante] = 0
+        choixJoueur.chimique[pastilleGlissante] = 0
+        document.getElementById(pastilleGlissante).style.backgroundColor = "rgba(255,255,255,1)"
+        console.log(pastilleGlissante)
+    }});
     $(".rond").droppable({drop : function(ev, ui){
-        pastilleDepose = $(ui.draggable);
-        console.log(pastilleDepose)
+        pastilleDepose = $(ui.draggable).attr("id");
+        rondDepose = ev.target.parentElement.parentElement.id
+        isTrue = bullesBaleines[rondDepose][pastilleDepose]
+        console.log(isTrue)
+        choixJoueur[rondDepose][pastilleDepose] = 1
+        
+        dropped = ui.draggable
+        droppedOn = $(this)
+        $(dropped).detach().css({top : 0, left : 0, margin : 0 , "font-size": "0.8em",}).appendTo(droppedOn)
+
+        if(isTrue)
+        {
+            document.getElementById(pastilleDepose).style.backgroundColor = "rgba(0,255,0,0.1)"
+
+        }
+        else
+        {
+            document.getElementById(pastilleDepose).style.backgroundColor = "rgba(255,0,0,0.1)"
+        }
+
     }});
   });
   
@@ -45,7 +90,7 @@ function init()
     var a,b;
     for(a=0, b=0; b < ordre.length; b++)
     {
-        Epreuves[a][ordre[b]].style.display = "none" //Utiliser fonction cacherElement
+        Epreuves[a][ordre[b]].style.display = "none" 
         if(a == 3 && b==3)
         {
             b = 3
@@ -59,9 +104,9 @@ function init()
     }
     /* Enlever du commentaire et enlever le forEach lorsque toute les epreuves seront implementé
     */
-    cacherElement(btnValider) //Utiliser fonction cacherElement
-    if (numEpreuve == 0){cacherElement(btnPrecedent)} //Utiliser fonction cacherElement
-    afficherElement(Epreuves[0].acceuil) //Utiliser la fonction afficherElement
+    cacherElement([btnValider]) 
+    if (numEpreuve == 0){cacherElement([btnPrecedent])} 
+    afficherElement([Epreuves[0].acceuil]) 
     btnSuivant.addEventListener('click', pageSuivante)
     btnPrecedent.addEventListener('click', pagePrecedente)
 }
@@ -70,38 +115,39 @@ function pageSuivante()
 {
     switch (i){
         case (0):
-            cacherElement(lastScreen)
-            afficherElement(btnSuivant) //Utiliser la fonction afficherElement
-            cacherElement(btnValider) //Utiliser fonction cacherElement
-            if (numEpreuve == 0){cacherElement(btnPrecedent)} //Utiliser fonction cacherElement
+            cacherElement([lastScreen, btnValider])
+            afficherElement([btnSuivant, btnPrecedent])
             i++
-            afficherElement(Epreuves[numEpreuve][ordre[i]])
+            afficherElement([Epreuves[numEpreuve][ordre[i]]])
             break;
         case 1:
-            cacherElement(lastScreen)
-            cacherElement(btnSuivant) //Utiliser la fonction afficherElement
-            afficherElement(btnValider)
-            btnValider.addEventListener('click', valider)
-            afficherElement(btnPrecedent) //Utiliser la fonction afficherElement
-            afficherElement(btnPrecedent) //Utiliser la fonction afficherElement
+            cacherElement([lastScreen, btnSuivant])
+            afficherElement([btnValider, btnPrecedent])
+            switch(numEpreuve){
+                case 0 :
+                    btnValider.addEventListener('click', validerEp1)
+                    break
+                case 1 : 
+                    btnValider.removeEventListener('click', validerEp1)
+                    btnValider.addEventListener('click', validerEp2)
+                    break;
+            }
+            
             i++
-            afficherElement(Epreuves[numEpreuve][ordre[i]])
+            afficherElement([Epreuves[numEpreuve][ordre[i]]])
             break;
         case 2:
-            cacherElement(lastScreen)
-            afficherElement(btnSuivant) //Utiliser fonction cacherElement
-            cacherElement(btnValider) //Utiliser fonction cacherElement
+            cacherElement([lastScreen, btnValider])
+            afficherElement([btnSuivant, btnPrecedent])
             i++
-            afficherElement(Epreuves[numEpreuve][ordre[i]])
+            afficherElement([Epreuves[numEpreuve][ordre[i]]])
             break;
         case 3:
-            cacherElement(lastScreen)
-            afficherElement(btnSuivant) //Utiliser la fonction afficherElement
-            cacherElement(btnValider) //Utiliser fonction cacherElement
-            afficherElement(btnPrecedent) //Utiliser la fonction afficherElement
+            cacherElement([lastScreen, btnValider])
+            afficherElement([btnSuivant, btnPrecedent])
             i=0
             numEpreuve++
-            afficherElement(Epreuves[numEpreuve][ordre[i]])
+            afficherElement([Epreuves[numEpreuve][ordre[i]]])
             break;
         default:
             break;
@@ -113,38 +159,40 @@ function pagePrecedente()
 {
     switch (i){
         case (0):
-            cacherElement(lastScreen)
-            afficherElement(btnSuivant) //Utiliser la fonction afficherElement
-            cacherElement(btnValider) //Utiliser fonction cacherElement
-            if (numEpreuve == 0){cacherElement(btnPrecedent)} //Utiliser fonction cacherElement
-            i=3
-            numEpreuve--
-            afficherElement(Epreuves[numEpreuve][ordre[i]])
+            cacherElement([lastScreen])
+            if(numEpreuve > 0)
+            {
+                i = 3
+                numEpreuve--
+                afficherElement([Epreuves[numEpreuve][ordre[i]], btnPrecedent, btnSuivant])
+                cacherElement([btnValider])
+            }
             break;
         case 1:
-            cacherElement(lastScreen)
-            cacherElement(btnSuivant) //Utiliser la fonction afficherElement
-            afficherElement(btnValider)
-            btnValider.addEventListener('click', valider)
-            afficherElement(btnPrecedent) //Utiliser la fonction afficherElement
             i--
-            afficherElement(Epreuves[numEpreuve][ordre[i]])
+            cacherElement([lastScreen, btnValider])
+            afficherElement([btnSuivant, Epreuves[numEpreuve][ordre[i]]])
+            if(numEpreuve == 0){cacherElement([btnPrecedent])}
             break;
         case 2:
-            cacherElement(lastScreen)
-            afficherElement(btnSuivant) //Utiliser fonction cacherElement
-            cacherElement(btnValider) //Utiliser fonction cacherElement
             i--
-            afficherElement(Epreuves[numEpreuve][ordre[i]])
+            cacherElement([lastScreen, btnValider])
+            afficherElement([btnSuivant, btnPrecedent, Epreuves[numEpreuve][ordre[i]]])
             break;
         case 3:
-            cacherElement(lastScreen)
-            cacherElement(btnSuivant) //Utiliser la fonction afficherElement
-            afficherElement(btnValider) //Utiliser fonction cacherElement
-            btnValider.addEventListener('click', valider)
-            afficherElement(btnPrecedent) //Utiliser la fonction afficherElement
             i--
-            afficherElement(Epreuves[numEpreuve][ordre[i]])
+            cacherElement([lastScreen, btnSuivant])
+            afficherElement([btnValider , btnPrecedent, Epreuves[numEpreuve][ordre[i]]])
+            switch(numEpreuve){
+                case 0 :
+                    btnValider.addEventListener('click', validerEp1)
+                    btnValider.addEventListener('click', validerEp2)
+                    break;
+                case 1 : 
+                    btnValider.removeEventListener('click', validerEp1)
+                    btnValider.addEventListener('click', validerEp2)
+                    break;
+            }
             break;
         default:
             break;
@@ -153,10 +201,10 @@ function pagePrecedente()
 }
 var mots = ["cetaces", "trente", "krill", "fanons", "filtres", "deux", "nourrissent", "reproduisent", "event"]
 var motsVar = ["cétacés", "trente", "krill", "fanons", "filtres", "deux", "nourrissent", "reproduisent", "évent"]
-function valider()
+function validerEp1()
 {
-    localStorage.setItem("bon", 0)
-    localStorage.setItem("mauvais", 0)
+    localStorage.setItem("bonEp1", 0)
+    localStorage.setItem("mauvaisEp1", 0)
     var bon = 0 
     var mauvais = 0
     var motsJoueur = document.querySelectorAll("input.inputMot");
@@ -167,20 +215,49 @@ function valider()
             bon++
         }else(mauvais++)
     }
-    localStorage.setItem("bon", bon)
-    localStorage.setItem("mauvais", mauvais)
-    cacherElement(btnValider) //Utiliser fonction cacherElement
-    afficherElement(btnSuivant) //Utiliser la fonction afficherElement
+    localStorage.setItem("bonEp1", bon)
+    localStorage.setItem("mauvaisEp1", mauvais)
+    cacherElement([btnValider]) 
+    afficherElement([btnSuivant]) 
     Epreuves[0].resultat.getElementsByTagName("div").score.innerHTML = bon + "/" + motsJoueur.length
     pageSuivante()
 }
-
-function afficherElement(element)
+function validerEp2()
 {
-    element.style.display = "block"
+    localStorage.setItem("bonEp2", 0)
+    localStorage.setItem("mauvaisEp2", 0)
+    var bon = 0 
+    var mauvais = 0
+    for(let [key, value] of Object.entries(choixJoueur))
+    {
+        for(let[key1, value1] of Object.entries(choixJoueur[key]))
+        {
+            if(choixJoueur[key][key1]==1)
+            {
+                if(bullesBaleines[key][key1] == true)
+                bon++
+                else mauvais++
+            }
+        }
+    }
+    if (bon == 7 && mauvais == 0)
+    {
+        cacherElement([btnValider])
+        afficherElement([btnSuivant])
+        Epreuves[1].resultat.getElementsByTagName("div").score.innerHTML = "Felicitations vous avez reussi l'epreuve 2"
+    }
+    console.log(bon)
+}
+function afficherElement(elem)
+{
+    elem.forEach(item => {
+        item.style.display = "block"
+    })
 }
 
 function cacherElement(elem)
 {
-    elem.style.display = "none"
+    elem.forEach(item => {
+        item.style.display = "none"
+    })
 }

@@ -182,10 +182,12 @@ ul li .liTxt
 #casesCommunications
 {
     float: left;
+    margin-left: 10%;
 }
 #pastillesCommunications
 {
     float: right;
+    margin-right: 10%;
 }
 
 .rond

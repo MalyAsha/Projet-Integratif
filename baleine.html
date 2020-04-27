@@ -29,7 +29,7 @@
                 <ul>
                     <li><div class="liTxt">Remplir le texte à trou sur le baleine a partir de vos propre connaissances.</div></li>
                     <li><div class="liTxt">En cas de difficulté vous pouvez afficher les mots manquants en cliquant sur </div><button id="fakeBtnRegle">?</button></li>
-                    <li><div class="liTxt">Epreuve <strong><i>validé</i></strong> si vous avez moins de 3 erreurs.</div></li>
+                    <li><div class="liTxt">Epreuve <div id="txtValide">validé</div> si vous avez moins de 3 erreurs.</div></li>
                     <li><div class="liTxt">Une fois l'epreuve terminer vous pouver continuez en cliquant sur <button id="btnFakeSuivant">Suivant</button> ou recommencer cette epreuve en cliquant sur <button id="btnReplay"><img src="images\replay.svg" alt=""></button></div></li>
                 </ul>
             </div>
@@ -42,8 +42,7 @@
                 Les fanons peuvent mesurer jusqu'à <input class="inputMot" id="mot6" name="deux" maxlength="4"> mètres de long. La longévité de cette espèce est de 80 à 85 ans. 
                 Les baleines bleues migrent entre les mers proches des pôles où elles se <input class="inputMot" id="mot7" name="nourissent" maxlength="11"> et les mers plus chaudes où elles se <input class="inputMot" id="mot8" name="reproduisent" maxlength="12">. 
                 Elles vivent généralement seules ou avec un autre individu et sont les animaux les plus gros vivant actuellement sur terre. 
-                Pour respirer la baleine bleue remonte à la surface et ouvre son <input class="inputMot" id="mot9" name="évent" maxlength="5">.
-            </div>
+                Pour respirer la baleine bleue remonte à la surface et ouvre son <input class="inputMot" id="mot9" name="évent" maxlength="5">.</div>
         </div>
         <div id="divEp1Resultat" class="resultat">
             <div id="text">
@@ -108,6 +107,10 @@
             <div id="score"></div>
         </div>
         <div id="divEp3Acceuil" class="acceuil">
+            <div>
+                <h1>Epreuve 3</h1>
+                <h3>L'anatomie de l'animal</h3>
+            </div>
         </div>
         <div id="divEp3Regles" class="regles">
             <div id="regles">
@@ -121,7 +124,7 @@
             </ul>
         </div>
         <div id="divEp3Epreuve" class="epreuve">
-            
+
         </div>
         <div id="divEp3Resultat" class="resultat">
             <li><div class="liTxt">Cette épreuve était une activité! Félicitations! Tu as acquis de nouvelles connaissances!</div></li>

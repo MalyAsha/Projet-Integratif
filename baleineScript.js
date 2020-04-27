@@ -43,44 +43,88 @@ var ordre = ["acceuil", "regles", "epreuve", "resultat"]
 var i = 0
 var numEpreuve = 0
 var lastScreen = Epreuves[0].acceuil
+var ratio;
+var left;
+
+resize();
+
+$(window).resize(function () {resize();});
+
+function resize()
+{
+    ratio = window.innerHeight / $('#fakeBody').innerHeight();
+    if (window.innerWidth / $('#fakeBody').innerWidth() < ratio) {
+        ratio = window.innerWidth / $('#fakeBody').innerWidth();
+    }
+    ratio -= .04;
+    $('#fakeBody').css('-ms-zoom', ratio);
+    $('#fakeBody').css('-moz-transform', 'scale(' + ratio + ')');
+    $('#fakeBody').css('-o-transform', 'scale(' + ratio + ')');
+    $('#fakeBody').css('-webkit-transform', 'scale(' + ratio + ')');
+    $('#fakeBody').css('transform', 'scale(' + ratio + ')');
+    left = ($(window).innerWidth() - $('#fakeBody').outerWidth() * ratio) / 2;
+    $('#fakeBody').css('left', left);
+}
 
 $(function() {
-    $("#tablePastilles td").droppable({drop : function(ev, ui){
-        pastilleDepose = $(ui.draggable).attr("id");
-        document.getElementById(pastilleDepose).style.backgroundColor = "rgba(255,255,255,1)"
-        dropped = ui.draggable
-        droppedOn = $(this)
-        $(dropped).detach().css({top : 0, left : 0, margin : '0.5em' , "font-size": "0.8em",}).appendTo(droppedOn)
-    }})
-    $(".pastilles").draggable({snap:".rond, #tablePastilles td", snapMode:"inner", tolerance : "fit", start : function(ev, ui){
-        pastilleGlissante = this.id
-        choixJoueur.tactile[pastilleGlissante] = 0
-        choixJoueur.sonore[pastilleGlissante] = 0
-        choixJoueur.visuel[pastilleGlissante] = 0
-        choixJoueur.chimique[pastilleGlissante] = 0
-        document.getElementById(pastilleGlissante).style.backgroundColor = "rgba(255,255,255,1)"
-    }});
-    $(".rond").droppable({drop : function(ev, ui){
-        pastilleDepose = $(ui.draggable).attr("id");
-        rondDepose = ev.target.parentElement.parentElement.id
-        isTrue = bullesBaleines[rondDepose][pastilleDepose]
-        choixJoueur[rondDepose][pastilleDepose] = 1
-        
-        dropped = ui.draggable
-        droppedOn = $(this)
-        $(dropped).detach().css({top : 0, left : 0, margin : 0 , "font-size": "0.8em",}).appendTo(droppedOn)
-
-        if(isTrue)
-        {
-            document.getElementById(pastilleDepose).style.backgroundColor = "rgba(0,255,0,0.1)"
-
+    $("#organe").hide()
+    $("#map").mouseover(
+        function(){
+            $("#organe").show()
         }
-        else
-        {
-            document.getElementById(pastilleDepose).style.backgroundColor = "rgba(255,0,0,0.1)"
+    )
+    $("#map").mouseout(
+        function(){
+            $("#organe").hide()
         }
+    )
+    $("#map").css({top : $("#baleineBleu").position().top+340, left : $("#baleineBleu").position().left+330})
+    //$("#organe").css({position : "absolute", top : $("#baleineBleu").position().top, left : $("#baleineBleu").position().left})
+    $("#tablePastilles td").droppable({
+        drop : function(ev, ui){
+            pastilleDepose = $(ui.draggable).attr("id");
+            document.getElementById(pastilleDepose).style.backgroundColor = "rgba(255,255,255,1)"
+            dropped = ui.draggable
+            droppedOn = $(this)
+            $(dropped).detach().css({top : 0, left : 0, margin : '0.5em' , "font-size": "0.8em",}).appendTo(droppedOn)
+        }
+    })
+    $(".pastilles").draggable({
+        cursor: "-webkit-grabbing", 
+        snap:".rond, #tablePastilles td", 
+        snapMode:"inner", 
+        tolerance : "fit", 
+        start : function(ev, ui){
+            pastilleGlissante = this.id
+            choixJoueur.tactile[pastilleGlissante] = 0
+            choixJoueur.sonore[pastilleGlissante] = 0
+            choixJoueur.visuel[pastilleGlissante] = 0
+            choixJoueur.chimique[pastilleGlissante] = 0
+            document.getElementById(pastilleGlissante).style.backgroundColor = "rgba(255,255,255,1)"
+        }
+    });
+    $(".rond").droppable({
+        drop : function(ev, ui){
+            pastilleDepose = $(ui.draggable).attr("id");
+            rondDepose = ev.target.parentElement.parentElement.id
+            isTrue = bullesBaleines[rondDepose][pastilleDepose]
+            choixJoueur[rondDepose][pastilleDepose] = 1
+            
+            dropped = ui.draggable
+            droppedOn = $(this)
+            $(dropped).detach().css({top : 0, left : 0, margin : 0 , "font-size": "0.8em",}).appendTo(droppedOn)
 
-    }});
+            if(isTrue)
+            {
+                document.getElementById(pastilleDepose).style.backgroundColor = "rgba(0,255,0,0.1)"
+
+            }
+            else
+            {
+                document.getElementById(pastilleDepose).style.backgroundColor = "rgba(255,0,0,0.1)"
+            }
+        }
+    });
   });
   
 function init()
@@ -239,7 +283,7 @@ function validerEp2()
             }
         }
     }
-    if (bon == 7 && mauvais == 0)
+    if (bon == 0 && mauvais == 0)
     {
         cacherElement([btnValider])
         afficherElement([btnSuivant])

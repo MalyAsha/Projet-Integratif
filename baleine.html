@@ -14,7 +14,8 @@
         </video>
     </div>
     <body onload="init();">
-        <h1 id="h1">Le baleine</h1>
+        <div id="fakeBody">
+            <h1 id="h1">Le baleine</h1>
         <div id="divEp1Acceuil" class="acceuil">
             <div>
                 <h1>Epreuve 1</h1>
@@ -65,7 +66,7 @@
                 <ul>
                     <li><div class="liTxt">Vous avez une définition lorsque vous passsez votre souris sur chaque mode de communication.</div></li>
                     <li><div class="liTxt">Le but est de mettre les actions de l’animal dans le mode de communication qu’il utilise pour les fairent.</div><button id="fakeBtnRegle">?</button></li>
-                    <li><div class="liTxt">Une fois que vous avez glissé la pastille au bon endroit, elle devient verte, vous pouvez alors avoir une explication en passant votre souris dessus pour expliquer comment chaque action est communiqué.</div></li>
+                    <li><div class="liTxt">Une fois que vous avez glissé la pastille au bon endroit, elle devient verte, vous pouvez alors avoir une explication en passant votre souris dessus pour expliquer <br> comment chaque action est communiqué.</div></li>
                     <li><div class="liTxt">Une fois l'epreuve terminer vous pouver continuez en cliquant sur <button id="btnFakeSuivant">Suivant</button> ou recommencer cette epreuve en cliquant sur <button id="btnReplay"><img src="images\replay.svg" alt=""></button></div></li>
                 </ul>
             </div>
@@ -140,8 +141,15 @@
                 <li><div class="liTxt">Une fois l'activité terminer vous pouver continuez en cliquant sur <button id="btnFakeSuivant">Suivant</button></div></li>
             </ul>
         </div>
-        <div id="divEp3Epreuve" class="epreuve">
-
+        <div id="divEp3Epreuve" class="epreuve" style="text-align: center;">
+            <div>
+                <img src="images/animaux/baleineBleueVert.png" id="organe">
+                <img src="images/animaux/baleineBleue.png" alt="" id="baleineBleu">
+                <svg id="map" width="100" height="100">
+                    <rect width="100" height="100"></rect>
+                </svg>
+            </div>
+            
         </div>
         <div id="divEp3Resultat" class="resultat">
             <li><div class="liTxt">Cette épreuve était une activité! Félicitations! Tu as acquis de nouvelles connaissances!</div></li>
@@ -170,16 +178,17 @@
         <div id="divEp4Resultat" class="resultat">
 
         </div>
-
-
-        <button id="btnPrecedent">Précedent</button>
-        <button id="btnSuivant">Suivant</button>
-        <button id="btnValider">Valider</button>
         <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
         <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-        <script src="baleineScript.js"></script>
+        
         <div id="credit">
             <div>Icons made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </div>
+        </div>
+            <button id="btnPrecedent">Précedent</button>
+            <button id="btnSuivant">Suivant</button>
+            <button id="btnValider">Valider</button>
+        
+        <script src="baleineScript.js"></script>
     </body>
 </html>

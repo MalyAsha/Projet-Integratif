@@ -1,3 +1,36 @@
+#baleineBleu
+{
+    position: absolute;
+    top: 25vh;
+    left: 25vh;
+    width: 100vh;
+    z-index: -1;
+}
+#organe
+{
+    position: absolute;
+    top: 25vh;
+    left: 25vh;
+    width: 100vh;
+    z-index: 0;
+}
+#map
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#fakeBody
+{
+    height:720px;
+    width:1280px;
+    position:absolute;
+    box-sizing:border-box;
+    transform-origin: 0 0;
+    -moz-transform-origin:0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+}
 html
 {
     -webkit-background-size: cover;
@@ -14,8 +47,10 @@ body
     font-variant: all-small-caps;
     margin: 0;
     padding: 0;
-    width: 100%;
+    /*
+    width: 100vw;
     height: auto;
+    */
 }
 
 .fullscreen-bg {
@@ -26,14 +61,14 @@ body
     left: 0;
     overflow: hidden;
     z-index: -100;
-    width: 100%;
+    width:100vw;
 }
 
 .fullscreen-bg__video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width:100vw;
 }
 h1
 {
@@ -137,7 +172,8 @@ button:focus
 ul
 {
     font-weight: 900;
-    font-size: 130%;
+    font-size: 100%;
+    margin-block-start: -2%;
 }
 ul li .liTxt
 {
@@ -237,7 +273,7 @@ ul li .liTxt
 #textTrou
 {
     padding: 1em;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 .inputMot
 {

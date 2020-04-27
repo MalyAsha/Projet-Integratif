@@ -49,7 +49,9 @@ var left;
 resize();
 
 $(window).resize(function () {resize();});
-
+setInterval(function(){
+    $("#map").css({top : $("#baleineBleu").position().top+200, left : $("#baleineBleu").position().left+250})
+},100)
 function resize()
 {
     ratio = window.innerHeight / $('#fakeBody').innerHeight();
@@ -68,18 +70,16 @@ function resize()
 
 $(function() {
     $("#organe").hide()
-    $("#map").mouseover(
-        function(){
-            $("#organe").show()
-        }
-    )
-    $("#map").mouseout(
-        function(){
-            $("#organe").hide()
-        }
-    )
-    $("#map").css({top : $("#baleineBleu").position().top+340, left : $("#baleineBleu").position().left+330})
-    //$("#organe").css({position : "absolute", top : $("#baleineBleu").position().top, left : $("#baleineBleu").position().left})
+    $("#trouver").hide()
+    $("#video").hide()
+    $("#map").css({top : $("#baleineBleu").position().top+300, left : $("#baleineBleu").position().left+350})
+    $("#map").mouseover(function(){
+        $("#organe").show()
+        $("#trouver").fadeIn(1000, function(){$("#video").delay( 00).fadeIn(2000)})
+    })
+    $("#map").mouseout(function(){
+        $("#organe").hide()
+    })
     $("#tablePastilles td").droppable({
         drop : function(ev, ui){
             pastilleDepose = $(ui.draggable).attr("id");

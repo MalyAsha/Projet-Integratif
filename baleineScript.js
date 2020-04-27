@@ -76,6 +76,7 @@ $(function() {
     $("#map").mouseover(function(){
         $("#organe").show()
         $("#trouver").fadeIn(1000, function(){$("#video").delay( 00).fadeIn(2000)})
+        afficherElement([btnSuivant])
     })
     $("#map").mouseout(function(){
         $("#organe").hide()
@@ -174,6 +175,10 @@ function pageSuivante()
                     btnValider.removeEventListener('click', validerEp1)
                     btnValider.addEventListener('click', validerEp2)
                     break;
+                case 2 :
+                    btnValider.removeEventListener('click', validerEp1)
+                    btnValider.removeEventListener('click', validerEp2)
+                    cacherElement([btnValider])
             }
             
             i++
@@ -283,7 +288,7 @@ function validerEp2()
             }
         }
     }
-    if (bon == 0 && mauvais == 0)
+    if (bon == 7 && mauvais == 0)
     {
         cacherElement([btnValider])
         afficherElement([btnSuivant])
